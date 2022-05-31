@@ -23,7 +23,7 @@
                 <h3>Registrar datos</h3>
             </div>
             <div class="card card-body">
-                <form action="signup.php" method="POST">
+                <form action="singup.php" method="POST">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping"></span>
                         <input type="text" name="user" class="form-control" placeholder="Nombre de usuario" aria-describedby="addon-wrapping">
