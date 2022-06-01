@@ -26,12 +26,12 @@
                 <form action="signup.php" method="POST">
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping"></span>
-                        <input type="text" class="form-control" placeholder="Nombre de usuario" aria-describedby="addon-wrapping">
+                        <input type="text" name="user" class="form-control" placeholder="Nombre de usuario" aria-describedby="addon-wrapping">
                     </div>
                     <br>
                     <div class="input-group flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping"></span>
-                        <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="addon-wrapping" pattern="(?=.*[A-Za-z])(?=.*[@#$%]).{8,}" title="Debe contener una letra mayúscula, una minúscula, un caracter especial (@#$%) y como mínimo 8 caracteres" id="contrasena" onfocusout="validar1()" required>
+                        <input type="password" class="form-control" placeholder="Contraseña" aria-describedby="addon-wrapping" pattern="(?=.*[A-Za-z])(?=.*[@#$%]).{8,}" title="Debe contener una letra mayúscula, una minúscula, un caracter especial (@#$%) y como mínimo 8 caracteres" id="contrasena" name="iden" onfocusout="validar1()" required>
                     </div>
                     <br>
                     <div class="input-group flex-nowrap">
