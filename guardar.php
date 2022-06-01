@@ -44,7 +44,4 @@ if(isset($_POST['save'])){
     }
     header("Location: crear.php");
 }
-
-
-
 ?>

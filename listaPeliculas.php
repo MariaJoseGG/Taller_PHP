@@ -29,8 +29,7 @@
                 <?php echo $_SESSION['mensaje']; ?>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-        <?php session_unset();
-        } ?>
+        <?php } ?>
         <div class="table-responsive">
             <table class="table table-bordered text-center">
                 <thead>
