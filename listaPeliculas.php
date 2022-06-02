@@ -17,11 +17,18 @@
         <div class="container">
             <a href="index.php" class="navbar-brand text-info">Películas</a>
         </div>
+        <?php if (!empty($_SESSION['active'])) { ?>
+            <a href="salir.php" class="btn btn-danger">
+                <i class="bi bi-box-arrow-left"></i> Cerrar sesión
+            </a>
+        <?php } ?>
     </nav>
 
-    <p class="h6 p-3">
-        Si lo desea, también puede <a href="crear.php">Agregar otra película</a> a este catálogo.
-    </p>
+    <?php if (!empty($_SESSION['active'])) { ?>
+        <p class="h6 p-3">
+            Si lo desea, también puede <a href="crear.php">Agregar otra película</a> a este catálogo.
+        </p>
+    <?php } ?>
 
     <div class="container-fluid">
         <?php if (isset($_SESSION['mensaje'])) { ?>
@@ -39,7 +46,9 @@
                         <th>Nombre del director</th>
                         <th>Fecha de estreno</th>
                         <th>Portada</th>
-                        <th>Acciones</th>
+                        <?php if (!empty($_SESSION['active'])) { ?>
+                            <th>Acciones</th>
+                        <?php } ?>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,21 +56,23 @@
                     $query = "SELECT * FROM pelicula";
                     $result = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($result)) {
-                        $foto = 'portadas/'.$row['portada']; ?>
+                        $foto = 'portadas/' . $row['portada']; ?>
                         <tr>
                             <td><?php echo $row['id'] ?></td>
                             <td><?php echo $row['nombre'] ?></td>
                             <td><?php echo $row['director'] ?></td>
                             <td><?php echo $row['fechaEstreno'] ?></td>
                             <td><img src="<?php echo $foto; ?>" alt="<?php echo $row['portada']; ?>" width="100"></td>
-                            <td>
-                                <a href="editar.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </a>
-                                <a href="eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">
-                                    <i class="bi bi-trash-fill"></i>
-                                </a>
-                            </td>
+                            <?php if (!empty($_SESSION['active'])) { ?>
+                                <td>
+                                    <a href="editar.php?id=<?php echo $row['id'] ?>" class="btn btn-primary">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </a>
+                                    <a href="eliminar.php?id=<?php echo $row['id'] ?>" class="btn btn-danger">
+                                        <i class="bi bi-trash-fill"></i>
+                                    </a>
+                                </td>
+                            <?php } ?>
                         </tr>
                     <?php } ?>
                 </tbody>

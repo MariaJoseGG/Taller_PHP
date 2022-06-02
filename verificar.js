@@ -20,5 +20,6 @@ function validar2() {
     else {
         cont.style.borderColor="green";
         confir.style.borderColor="green";
+        document.getElementById("save").disabled=false;
     }
 }
